@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8619914696613353610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8619914696613353612}
+  - component: {fileID: 8619914696613353613}
+  - component: {fileID: 1193872024210323400}
+  m_Layer: 0
+  m_Name: RespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8619914696613353612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619914696613353610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.3, y: -4.69, z: -4.6191483}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8619914696613353613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619914696613353610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd17f842b5f3274086884c17e07b4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobs:
+  - {fileID: 4012265705220050266, guid: e9db7164667d01141816fb12dc1a4d4f, type: 3}
+  - {fileID: 4012265705220050266, guid: 1cdd8129bdd08f24cb10b7216240fc74, type: 3}
+  - {fileID: 4012265705220050266, guid: 42ec58bbac317784f930e880d9e1f445, type: 3}
+  - {fileID: 4012265705220050266, guid: 8d907aa4bc04b2f4d8b75a37b33f61a4, type: 3}
+  - {fileID: 4012265705220050266, guid: 72a0be1a74e32eb47adf0a52dcb7693a, type: 3}
+  - {fileID: 4012265705220050266, guid: f809e3d51d5307c44980777566188bac, type: 3}
+  - {fileID: 4012265705220050266, guid: 417049412b4f8224fb961d750c023c60, type: 3}
+  - {fileID: 4012265705220050266, guid: 472ac9b828e669e418619b8ecb8548d4, type: 3}
+  - {fileID: 4012265705220050266, guid: f60304928686d914085ce34269a9527b, type: 3}
+  - {fileID: 4012265705220050266, guid: b0090e0a6475e914fb41b647ef67d264, type: 3}
+  - {fileID: 4012265705220050266, guid: a67a69030a0598d41ab10bac3cdd1633, type: 3}
+  panel: {fileID: 0}
+  buttonPanel: {fileID: 0}
+  prices: 050000000a00000014000000280000003c00000050000000640000007800000096000000b4000000e1000000
+  incomes: 01000000020000000400000006000000080000000a0000000c0000000f00000014000000190000001e000000
+  counts: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  countsText: []
+  imagesButtons: []
+  counts2: []
+  timeRefresh: []
+  timeVel:
+  - 30
+  - 60
+  - 120
+  - 150
+  - 180
+  - 210
+  - 240
+  - 300
+  - 360
+  - 420
+  - 480
+--- !u!114 &1193872024210323400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619914696613353610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95d90d3c2c2dc045a35bc6d975b6453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 50
+  income: 0
+  timer: 25
+  timerText: {fileID: 0}
+  incomeText: {fileID: 0}
+  moneyText: {fileID: 0}
