@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class DestroyEnemy : MonoBehaviour
+public class DestoyCreepsSolo : MonoBehaviour
 {
-    CreateMobs mobsSingle;
+    CreateMobsSingle mobsSingle;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Death"))
         {
-            mobsSingle = FindObjectOfType<CreateMobs>();
+            mobsSingle = FindObjectOfType<CreateMobsSingle>();
             mobsSingle.life--;
             mobsSingle.textLife.text = "Life " + mobsSingle.life;
             if (mobsSingle.life <= 0)

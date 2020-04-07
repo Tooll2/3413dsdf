@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class EnemyData : MonoBehaviour
+public class EnemyDataSolo : MonoBehaviour
 {
-	[SerializeField][Header("%")] private float armor;
+	[SerializeField] [Header("%")] private float armor;
 	public float maxhealth;
 	public Image bar;
 	[HideInInspector] public float health;
 	public int bounty;
-	Money money;
+	CreateMobsSingle money;
 
 	private void Start()
 	{
@@ -25,15 +24,9 @@ public class EnemyData : MonoBehaviour
 		bar.fillAmount = health / maxhealth;
 		if (health <= 0)
 		{
-			money = FindObjectOfType<Money>();
+			money = FindObjectOfType<CreateMobsSingle>();
 			money.money += bounty + 4;
 			Destroy(gameObject);
 		}
 	}
-
-
-
-
-
-
 }

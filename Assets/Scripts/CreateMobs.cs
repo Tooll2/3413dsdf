@@ -8,8 +8,10 @@ public class CreateMobs : MonoBehaviour
     public GameObject[] mobs;
     public GameObject panel, buttonPanel;
     private Transform respownPoint;
+    public int life = 20;
     public int[] prices, incomes, counts;
     Money money;
+    public Text textLife;
     public Text[] countsText;
     public Image[] imagesButtons;
     public float[] counts2, timeRefresh, timeVel;

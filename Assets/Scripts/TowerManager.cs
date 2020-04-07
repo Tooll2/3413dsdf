@@ -28,17 +28,28 @@ public class TowerManager : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePoint, Vector2.zero);
             
             if (sprite.sprite != null && sprite.sprite.name != null) 
-            { 
-
-            if (sprite.enabled && sprite.sprite.name == "Tower" && hit.collider==null && money.money >= 10)
             {
-                PlacedTower(mousePoint);
-                money.money -= 10;
+                if (sprite.enabled && sprite.sprite.name == "Tower" && hit.collider==null && money.money >= 10)
+                {
+                    PlacedTower(mousePoint);
+                    money.money -= 10;
+                }
+                if (hit.collider != null)
+                    if (hit.collider.CompareTag("Tower") && sprite.enabled && sprite.sprite.name == "UI2_7")
+                        DelTower(hit);
             }
             if (hit.collider != null)
-            if (hit.collider.CompareTag("Tower") && sprite.enabled && sprite.sprite.name == "UI2_7")
-                    DelTower(hit);
-            }
+                if (hit.collider.CompareTag("Tower") && sprite.enabled && sprite.sprite.name == "UI1_29")
+                {
+                    ShootTower shootTower = hit.collider.GetComponent<ShootTower>();
+                    if (shootTower.lvl == 1)
+                    {
+                        hit.collider.GetComponent<SpriteRenderer>().color = Color.red;
+                        shootTower.bulletDamage = 40;
+                        shootTower.lvl += 1;
+                        money.money -= 50;
+                    }
+                }
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -55,33 +66,9 @@ public class TowerManager : MonoBehaviour
             float x = Mathf.Round(hit.x);
             float y = Mathf.Round(hit.y);
             newTower.transform.position = new Vector2(x,y);
-            //if (hit.transform==null) { Debug.Log("Пи***"); } else { Debug.Log("Не Пи***"); }
-            //int x = (int)hit.transform.position.x;
-            //int y = (int)hit.transform.position.y;
-
-
-            //Transform p = hit.transform;
-
-            //p.localPosition.Set(x,y,0);
-
-            //newTower.transform.localPosition = new Vector3(x,y,0);
-            //GameObject newTower = Instantiate(towerButtonPressed.TowerObject, p);
-            //GameObject newTower = Instantiate(towerButtonPressed.TowerObject, hit.transform.position, hit.transform.rotation);
-
-
         }
     }
-    //public void PlacedTower(RaycastHit2D hit)
-    //{
-    //    if (!EventSystem.current.IsPointerOverGameObject() && towerButtonPressed != null)
-    //    {
-    //        if (!hit.collider.CompareTag("Ground"))
-    //        {
-    //            GameObject newTower = Instantiate(towerButtonPressed.TowerObject, towersParent.transform);
-    //            newTower.transform.position = hit.transform.position;
-    //        }
-    //    }
-    //}
+ 
     public void DelTower(RaycastHit2D hit)
     {
         if (!EventSystem.current.IsPointerOverGameObject() && towerButtonPressed != null)
@@ -89,7 +76,6 @@ public class TowerManager : MonoBehaviour
             if (hit.collider.CompareTag("Tower"))
                 Destroy(hit.transform.gameObject);
         }
-
     }
 
     public void SelectedTower(TowerButton towerSelected)
