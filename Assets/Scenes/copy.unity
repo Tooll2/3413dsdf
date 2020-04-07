@@ -3122,8 +3122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 614582589}
-  mobs: {fileID: 0}
-  text: {fileID: 0}
+  mobs: {fileID: 300979284}
+  text: {fileID: 581127849}
 --- !u!1 &397940157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5990,6 +5990,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1840573124}
     m_Modifications:
+    - target: {fileID: 7587767019937113684, guid: 307d094aa6cac1648a61472bcc094b02,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 364694592}
+    - target: {fileID: 7587767019937113684, guid: 307d094aa6cac1648a61472bcc094b02,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectedTower
+      objectReference: {fileID: 0}
     - target: {fileID: 7757177778852389634, guid: 307d094aa6cac1648a61472bcc094b02,
         type: 3}
       propertyPath: m_Name

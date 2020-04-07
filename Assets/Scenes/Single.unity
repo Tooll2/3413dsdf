@@ -6844,7 +6844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towersParent: {fileID: 1122114536}
   money: {fileID: 1756474025}
-  tower: {fileID: 2265153228017346104, guid: 18224de0036a71b47bc21c8ecc3c23c5, type: 3}
+  tower: {fileID: 2265153228017346104, guid: 0620f7e8e92f5c246a11ca85e37ecf4d, type: 3}
 --- !u!4 &364694593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9042478921268369779, guid: 316e4bcb4cc16e644a2ae9b26991406d,
@@ -30848,17 +30848,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mobs:
-  - {fileID: 4012265705220050266, guid: e9db7164667d01141816fb12dc1a4d4f, type: 3}
-  - {fileID: 4012265705220050266, guid: 1cdd8129bdd08f24cb10b7216240fc74, type: 3}
-  - {fileID: 4012265705220050266, guid: 42ec58bbac317784f930e880d9e1f445, type: 3}
-  - {fileID: 4012265705220050266, guid: 8d907aa4bc04b2f4d8b75a37b33f61a4, type: 3}
-  - {fileID: 4012265705220050266, guid: 72a0be1a74e32eb47adf0a52dcb7693a, type: 3}
-  - {fileID: 4012265705220050266, guid: f809e3d51d5307c44980777566188bac, type: 3}
-  - {fileID: 4012265705220050266, guid: 417049412b4f8224fb961d750c023c60, type: 3}
-  - {fileID: 4012265705220050266, guid: 472ac9b828e669e418619b8ecb8548d4, type: 3}
-  - {fileID: 4012265705220050266, guid: f60304928686d914085ce34269a9527b, type: 3}
-  - {fileID: 4012265705220050266, guid: b0090e0a6475e914fb41b647ef67d264, type: 3}
-  - {fileID: 4012265705220050266, guid: a67a69030a0598d41ab10bac3cdd1633, type: 3}
+  - {fileID: 4012265705220050266, guid: ceedc349df136a549a7a5a63181b765e, type: 3}
+  - {fileID: 4012265705220050266, guid: da9ddd06bc7e10b4db4ff85fa2782da6, type: 3}
+  - {fileID: 4012265705220050266, guid: bc51485b23439dd43b03853b92b38257, type: 3}
+  - {fileID: 4012265705220050266, guid: 914c2a229eed5b549bff766619e65f60, type: 3}
+  - {fileID: 4012265705220050266, guid: 0bd7d3ccc50a9224a932f292f15299e5, type: 3}
+  - {fileID: 4012265705220050266, guid: f3d431814e3c2744a9f956778daf3a20, type: 3}
+  - {fileID: 4012265705220050266, guid: d158e5a5053c717418f25998be953cda, type: 3}
+  - {fileID: 4012265705220050266, guid: 4ccd884f4a2dbdb43a4441be1215af4f, type: 3}
+  - {fileID: 4012265705220050266, guid: 0a2c5c05cb0a814458d73edbaf4b555d, type: 3}
+  - {fileID: 4012265705220050266, guid: f99e96debe6c48941bf9cff8aab48808, type: 3}
+  - {fileID: 4012265705220050266, guid: ea4b3da9218dd684884c60fdbefe2704, type: 3}
   wave: 0
   maxWave: 20
   money: 100
@@ -40475,6 +40475,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7078091425714942236, guid: f62b5b9de50d6784c9dfe0195ffd8a0e,
+        type: 3}
+      propertyPath: towerObj
+      value: 
+      objectReference: {fileID: 2265153228017346104, guid: 0620f7e8e92f5c246a11ca85e37ecf4d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f62b5b9de50d6784c9dfe0195ffd8a0e, type: 3}
 --- !u!1001 &9042478920923108658
