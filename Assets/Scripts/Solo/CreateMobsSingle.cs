@@ -8,17 +8,16 @@ public class CreateMobsSingle : MonoBehaviour
     public GameObject[] mobs;
     private Transform respownPoint;
     public int wave, maxWave = 20;
-	public int money, waveTemp, timer = 10, life = 20;
-	public Text timerText, moneyText, waveText, textLife;
+    public int money, waveTemp, timer = 15, life = 20;
+    public Text timerText, moneyText, waveText, textLife;
     private IEnumerator instMob;
 
     private void Start()
     {
         respownPoint = transform;
         instMob = Instmobs();
-
-        StartCoroutine(TimerIncome());
         StartCoroutine(instMob);
+        StartCoroutine(TimerIncome());
 
     }
     private void FixedUpdate()
@@ -35,12 +34,18 @@ public class CreateMobsSingle : MonoBehaviour
     {
         for (wave = 1; wave <= maxWave; wave++)
         {
-            yield return new WaitForSecondsRealtime(10);
-            for (int i = 0; i <= 5 + (wave * Random.Range(1, 4)) / 2; i++)
+            
+            yield return new WaitForSecondsRealtime(15);
+            for (int i = 0; i <= 5 + (wave * Random.Range(1, 4)) / 1.5; i++)
             {
-                if (wave >= 10)
+                if (wave >= 10 && wave < 20)
                 {
                     Instantiate(mobs[Random.Range(wave - 10, 11)], respownPoint.position, respownPoint.rotation);
+                    yield return new WaitForSecondsRealtime(0.5f);
+                }
+                else if (wave >=20)
+                {
+                    Instantiate(mobs[Random.Range(wave - 20, 11)], respownPoint.position, respownPoint.rotation);
                     yield return new WaitForSecondsRealtime(0.5f);
                 }
                 else
@@ -53,7 +58,7 @@ public class CreateMobsSingle : MonoBehaviour
         }
     }
 
-       
+
 
     IEnumerator TimerIncome()
     {
@@ -61,9 +66,9 @@ public class CreateMobsSingle : MonoBehaviour
         {
             timer -= 1;
             timerText.text = "Begin " + timer;
-            
+
             if (timer <= 0)
-                timer = 10;
+                break;
             yield return new WaitForSecondsRealtime(1);
         }
     }
