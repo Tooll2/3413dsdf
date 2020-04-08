@@ -11,6 +11,7 @@ public class TowerManagerSolo : MonoBehaviour
     Vector2 mousePoint;
     public CreateMobsSingle money;
     public GameObject tower;
+    public Sprite[] spritesTowers;
 
     SpriteRenderer sprite;
 
@@ -31,8 +32,8 @@ public class TowerManagerSolo : MonoBehaviour
             {
                 if (sprite.enabled && sprite.sprite.name == "Tower" && hit.collider == null && money.money >= 10)
                 {
-                    PlacedTower(mousePoint);
                     money.money -= 10;
+                    PlacedTower(mousePoint);
                 }
                 if (hit.collider != null)
                     if (hit.collider.CompareTag("Tower") && sprite.enabled && sprite.sprite.name == "UI2_7")
@@ -48,16 +49,16 @@ public class TowerManagerSolo : MonoBehaviour
                         case 1:
                             if (money.money >= shootTower.priceUp[0])
                             {
-                                hit.collider.GetComponent<SpriteRenderer>().color = Color.red;
+                                hit.collider.GetComponent<SpriteRenderer>().sprite = spritesTowers[0];
                                 shootTower.bulletDamage = 40;
                                 shootTower.lvl += 1;
                                 money.money -= shootTower.priceUp[0];
                             }
-                                break;
+                            break;
                         case 2:
                             if (money.money >= shootTower.priceUp[1])
                             {
-                                hit.collider.GetComponent<SpriteRenderer>().color = Color.black;
+                                hit.collider.GetComponent<SpriteRenderer>().sprite = spritesTowers[1];
                                 shootTower.bulletDamage = 100;
                                 shootTower.lvl += 1;
                                 money.money -= shootTower.priceUp[1];
@@ -66,7 +67,7 @@ public class TowerManagerSolo : MonoBehaviour
                         case 3:
                             if (money.money >= shootTower.priceUp[2])
                             {
-                                hit.collider.GetComponent<SpriteRenderer>().color = Color.green;
+                                hit.collider.GetComponent<SpriteRenderer>().sprite = spritesTowers[2];
                                 shootTower.bulletDamage = 250;
                                 shootTower.lvl += 1;
                                 money.money -= shootTower.priceUp[2];
@@ -75,7 +76,7 @@ public class TowerManagerSolo : MonoBehaviour
                         case 4:
                             if (money.money >= shootTower.priceUp[3])
                             {
-                                hit.collider.GetComponent<SpriteRenderer>().color = Color.cyan;
+                                hit.collider.GetComponent<SpriteRenderer>().sprite = spritesTowers[3];
                                 shootTower.bulletDamage = 550;
                                 shootTower.lvl += 1;
                                 money.money -= shootTower.priceUp[3];
@@ -84,14 +85,13 @@ public class TowerManagerSolo : MonoBehaviour
                         case 5:
                             if (money.money >= shootTower.priceUp[4])
                             {
-                                hit.collider.GetComponent<SpriteRenderer>().color = Color.yellow;
+                                hit.collider.GetComponent<SpriteRenderer>().sprite = spritesTowers[4];
                                 shootTower.bulletDamage = 950;
                                 shootTower.lvl += 1;
                                 money.money -= shootTower.priceUp[4];
                             }
                             break;
                     }
-
                 }
         }
 
@@ -105,10 +105,9 @@ public class TowerManagerSolo : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject() && towerButtonPressed != null)
         {
-            GameObject newTower = Instantiate(tower, towersParent.transform.position, towersParent.transform.rotation);
             float x = Mathf.Round(hit.x);
             float y = Mathf.Round(hit.y);
-            newTower.transform.position = new Vector2(x, y);
+            Instantiate(tower, new Vector2(x, y), towersParent.transform.rotation);
         }
     }
 
