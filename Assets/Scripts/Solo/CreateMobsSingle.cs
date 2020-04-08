@@ -33,8 +33,7 @@ public class CreateMobsSingle : MonoBehaviour
     public IEnumerator Instmobs()
     {
         for (wave = 1; wave <= maxWave; wave++)
-        {
-            
+        { 
             yield return new WaitForSecondsRealtime(15);
             for (int i = 0; i <= 5 + (wave * Random.Range(1, 4)) / 1.5; i++)
             {
