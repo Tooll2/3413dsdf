@@ -6,8 +6,9 @@ public class ShootTowerSolo : MonoBehaviour
 {
 	public GameObject bullet;
 	public LayerMask whatIsEnemy;
-	public float startAttackTime, radius, bulletDamage, lvl = 1;
+	public float startAttackTime, radius, bulletDamage = 10, lvl = 1;
 	public Transform attackPosition;
+	public int[] priceUp;
 
 	private bool shoot;
 
@@ -19,7 +20,7 @@ public class ShootTowerSolo : MonoBehaviour
 	}
 
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		Shoot();
 	}

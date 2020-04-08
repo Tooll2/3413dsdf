@@ -42,12 +42,54 @@ public class TowerManagerSolo : MonoBehaviour
                 if (hit.collider.CompareTag("Tower") && sprite.enabled && sprite.sprite.name == "UI1_29")
                 {
                     ShootTowerSolo shootTower = hit.collider.GetComponent<ShootTowerSolo>();
-                    if (shootTower.lvl == 1 && money.money >= 50)
+                  
+                    switch (shootTower.lvl)
                     {
-                        hit.collider.GetComponent<SpriteRenderer>().color = Color.red;
-                        shootTower.bulletDamage = 40;
-                        shootTower.lvl += 1;
-                        money.money -= 50;
+                        case 1:
+                            if (money.money >= shootTower.priceUp[0])
+                            {
+                                hit.collider.GetComponent<SpriteRenderer>().color = Color.red;
+                                shootTower.bulletDamage = 40;
+                                shootTower.lvl += 1;
+                                money.money -= shootTower.priceUp[0];
+                            }
+                                break;
+                        case 2:
+                            if (money.money >= shootTower.priceUp[1])
+                            {
+                                hit.collider.GetComponent<SpriteRenderer>().color = Color.black;
+                                shootTower.bulletDamage = 100;
+                                shootTower.lvl += 1;
+                                money.money -= shootTower.priceUp[1];
+                            }
+                            break;
+                        case 3:
+                            if (money.money >= shootTower.priceUp[2])
+                            {
+                                hit.collider.GetComponent<SpriteRenderer>().color = Color.green;
+                                shootTower.bulletDamage = 250;
+                                shootTower.lvl += 1;
+                                money.money -= shootTower.priceUp[2];
+                            }
+                            break;
+                        case 4:
+                            if (money.money >= shootTower.priceUp[3])
+                            {
+                                hit.collider.GetComponent<SpriteRenderer>().color = Color.cyan;
+                                shootTower.bulletDamage = 550;
+                                shootTower.lvl += 1;
+                                money.money -= shootTower.priceUp[3];
+                            }
+                            break;
+                        case 5:
+                            if (money.money >= shootTower.priceUp[4])
+                            {
+                                hit.collider.GetComponent<SpriteRenderer>().color = Color.yellow;
+                                shootTower.bulletDamage = 950;
+                                shootTower.lvl += 1;
+                                money.money -= shootTower.priceUp[4];
+                            }
+                            break;
                     }
 
                 }

@@ -35,7 +35,7 @@ public class CreateMobsSingle : MonoBehaviour
     {
         for (wave = 1; wave <= maxWave; wave++)
         {
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSecondsRealtime(10);
             for (int i = 0; i <= 5 + (wave * Random.Range(1, 4)) / 2; i++)
             {
                 if (wave >= 10)

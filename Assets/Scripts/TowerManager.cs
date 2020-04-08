@@ -42,13 +42,9 @@ public class TowerManager : MonoBehaviour
                 if (hit.collider.CompareTag("Tower") && sprite.enabled && sprite.sprite.name == "UI1_29")
                 {
                     ShootTower shootTower = hit.collider.GetComponent<ShootTower>();
-                    if (shootTower.lvl == 1)
-                    {
-                        hit.collider.GetComponent<SpriteRenderer>().color = Color.red;
-                        shootTower.bulletDamage = 40;
-                        shootTower.lvl += 1;
-                        money.money -= 50;
-                    }
+
+
+                    
                 }
         }
 

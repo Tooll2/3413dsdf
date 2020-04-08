@@ -139,4 +139,3 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 512
-  money: {fileID: 1193872024210323400, guid: 7bd72e7e5a6871a45a81fc47f2397265, type: 3}

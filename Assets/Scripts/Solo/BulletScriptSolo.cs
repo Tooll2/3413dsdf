@@ -51,6 +51,11 @@ public class BulletScriptSolo : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            if (bulletDamage == 250 || bulletDamage == 550 || bulletDamage == 950)
+            {
+                if (Random.Range(0, 101) < 20)
+                    bulletDamage *= 2;
+            }
             EnemyDataSolo enemy = other.GetComponent<EnemyDataSolo>();
             enemy.TakeDamage(bulletDamage);
             Destroy(gameObject);
