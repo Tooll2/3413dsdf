@@ -32,10 +32,8 @@ public class TowerManagerSolo : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (sprite.sprite != null && sprite.sprite.name != null)
-            {  
                 if (sprite.enabled && sprite.sprite.name == "Tower" && hit.collider == null && money.money >= 10)
                     PlacedTower(mousePoint);
-            }
             if (hit.collider != null && !sprite.enabled)
             {
                 if (hit.collider.CompareTag("Tower"))
