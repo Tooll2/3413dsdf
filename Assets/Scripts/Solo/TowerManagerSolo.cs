@@ -25,26 +25,22 @@ public class TowerManagerSolo : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
+        hit = Physics2D.Raycast(mousePoint, Vector2.zero);
+        mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
         {
-            hit = Physics2D.Raycast(mousePoint, Vector2.zero);
-            mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            
-
             if (sprite.sprite != null && sprite.sprite.name != null)
-            {
+            {  
                 if (sprite.enabled && sprite.sprite.name == "Tower" && hit.collider == null && money.money >= 10)
-                { 
                     PlacedTower(mousePoint);
-                    
-                }
                 if (hit.collider != null)
                     if (hit.collider.CompareTag("Tower") && sprite.enabled && sprite.sprite.name == "UI2_7")
                         DelTower(hit);
             }
-            if (hit.collider != null)
+            if (hit.collider != null && !sprite.enabled)
+            {
                 if (hit.collider.CompareTag("Tower"))
                 {
                     shootTower = hit.collider.GetComponent<ShootTowerSolo>();
@@ -52,17 +48,15 @@ public class TowerManagerSolo : MonoBehaviour
                     imageFrame.SetActive(true);
                     panelUpTowers.SetActive(true);
                 }
+            }
         }
-
+        FollowMouse();
         if (Input.GetMouseButtonDown(1))
         {
             DisableDrug();
             panelUpTowers.SetActive(false);
             imageFrame.SetActive(false);
         }
-            
-
-        FollowMouse();
     }
 
     public void UpTowersButton()
