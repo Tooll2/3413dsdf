@@ -25,7 +25,7 @@ public class TowerManagerSolo : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         hit = Physics2D.Raycast(mousePoint, Vector2.zero);
         mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -35,9 +35,6 @@ public class TowerManagerSolo : MonoBehaviour
             {  
                 if (sprite.enabled && sprite.sprite.name == "Tower" && hit.collider == null && money.money >= 10)
                     PlacedTower(mousePoint);
-                if (hit.collider != null)
-                    if (hit.collider.CompareTag("Tower") && sprite.enabled && sprite.sprite.name == "UI2_7")
-                        DelTower(hit);
             }
             if (hit.collider != null && !sprite.enabled)
             {
@@ -57,6 +54,12 @@ public class TowerManagerSolo : MonoBehaviour
             panelUpTowers.SetActive(false);
             imageFrame.SetActive(false);
         }
+    }
+
+    public void DelTowerButton()
+    {
+        Destroy(shootTower.gameObject);
+        imageFrame.SetActive(false);
     }
 
     public void UpTowersButton()
