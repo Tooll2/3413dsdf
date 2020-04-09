@@ -8,13 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2265153228017346103}
+  - component: {fileID: 3563306726909544204}
   - component: {fileID: 2265153228017346100}
   - component: {fileID: 2265153228017346101}
   - component: {fileID: 2265153228017346102}
   - component: {fileID: 6732595812069704086}
   - component: {fileID: -2111256691262904981}
   - component: {fileID: -3603218400919212562}
+  - component: {fileID: 4148190698117131071}
   m_Layer: 8
   m_Name: TowerSolo
   m_TagString: Tower
@@ -22,8 +23,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2265153228017346103
-Transform:
+--- !u!224 &3563306726909544204
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -36,6 +37,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.9448, y: 0.9448}
+  m_Pivot: {x: 0.50000006, y: 0.2691199}
 --- !u!212 &2265153228017346100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -194,3 +200,11 @@ MonoBehaviour:
   lvl: 1
   attackPosition: {fileID: 0}
   priceUp: 32000000c8000000f4010000e8030000c4090000
+--- !u!222 &4148190698117131071
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2265153228017346104}
+  m_CullTransparentMesh: 0
