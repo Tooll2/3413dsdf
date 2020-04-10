@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TowerManagerSolo : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class TowerManagerSolo : MonoBehaviour
     public CreateMobsSingle money;
     public GameObject tower, panelUpTowers, imageFrame;
     public Sprite[] spritesTowers;
+    public Text textTowerInfo;
 
     SpriteRenderer sprite;
 
@@ -24,9 +27,9 @@ public class TowerManagerSolo : MonoBehaviour
 
 
     void Update()
-    {
-        hit = Physics2D.Raycast(mousePoint, Vector2.zero);
+    {   
         mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        hit = Physics2D.Raycast(mousePoint, Vector2.zero);
         if (Input.GetMouseButtonDown(0))
         {
             if (sprite.sprite != null && sprite.sprite.name != null)
@@ -40,6 +43,7 @@ public class TowerManagerSolo : MonoBehaviour
                     imageFrame.transform.position = shootTower.transform.position;
                     imageFrame.SetActive(true);
                     panelUpTowers.SetActive(imageFrame.activeSelf);
+                    textTowerInfo.text = "LVL: " + (shootTower.lvl + 1) + Environment.NewLine + "Damage: " + shootTower.bulletDamage + Environment.NewLine + "Upgrade cost: " + shootTower.priceUp[shootTower.lvl];
                 }
             }
         }
@@ -61,55 +65,15 @@ public class TowerManagerSolo : MonoBehaviour
 
     public void UpTowers()
     {
-        int[] damage = new int[5] { 40, 100, 250, 550, 950 };
-
-        switch (shootTower.lvl)
-        {  
-            case 0:
-                if (money.money >= shootTower.priceUp[shootTower.lvl])
-                {
-                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[shootTower.lvl];
-                    shootTower.bulletDamage = damage[shootTower.lvl];
-                    shootTower.lvl += 1;
-                    money.money -= shootTower.priceUp[shootTower.lvl];
-                }
-                break;
-            case 1:
-                if (money.money >= shootTower.priceUp[shootTower.lvl])
-                {
-                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[shootTower.lvl];
-                    shootTower.bulletDamage = 100;
-                    shootTower.lvl += 1;
-                    money.money -= shootTower.priceUp[shootTower.lvl];
-                }
-                break;
-            case 2:
-                if (money.money >= shootTower.priceUp[shootTower.lvl])
-                {
-                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[shootTower.lvl];
-                    shootTower.bulletDamage = 250;
-                    shootTower.lvl += 1;
-                    money.money -= shootTower.priceUp[shootTower.lvl];
-                }
-                break;
-            case 3:
-                if (money.money >= shootTower.priceUp[3])
-                {
-                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[3];
-                    shootTower.bulletDamage = 550;
-                    shootTower.lvl += 1;
-                    money.money -= shootTower.priceUp[3];
-                }
-                break;
-            case 4:
-                if (money.money >= shootTower.priceUp[4])
-                {
-                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[4];
-                    shootTower.bulletDamage = 950;
-                    shootTower.lvl += 1;
-                    money.money -= shootTower.priceUp[4];
-                }
-                break;
+        int[] damage = new int[5] {40, 100, 250, 550, 950};
+        int i = shootTower.lvl;
+        if (money.money >= shootTower.priceUp[i])
+        {
+            shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[i];
+            shootTower.bulletDamage = damage[i];
+            shootTower.lvl += 1;
+            money.money -= shootTower.priceUp[i];
+            textTowerInfo.text = "LVL: " + (shootTower.lvl + 1) + Environment.NewLine + "Damage: " + damage[i] + Environment.NewLine + "Upgrade cost: " + shootTower.priceUp[shootTower.lvl];
         }
     }
 
