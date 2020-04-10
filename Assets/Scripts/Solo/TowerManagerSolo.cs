@@ -15,8 +15,6 @@ public class TowerManagerSolo : MonoBehaviour
     public GameObject tower, panelUpTowers, imageFrame;
     public Sprite[] spritesTowers;
 
-
-
     SpriteRenderer sprite;
 
     private void Start()
@@ -41,7 +39,7 @@ public class TowerManagerSolo : MonoBehaviour
                     shootTower = hit.collider.GetComponent<ShootTowerSolo>();
                     imageFrame.transform.position = shootTower.transform.position;
                     imageFrame.SetActive(true);
-                    panelUpTowers.SetActive(true);
+                    panelUpTowers.SetActive(imageFrame.activeSelf);
                 }
             }
         }
@@ -49,8 +47,8 @@ public class TowerManagerSolo : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             DisableDrug();
-            panelUpTowers.SetActive(false);
             imageFrame.SetActive(false);
+            panelUpTowers.SetActive(imageFrame.activeSelf);
         }
     }
 
@@ -58,45 +56,43 @@ public class TowerManagerSolo : MonoBehaviour
     {
         Destroy(shootTower.gameObject);
         imageFrame.SetActive(false);
+        panelUpTowers.SetActive(imageFrame.activeSelf);
     }
 
-    public void UpTowersButton()
+    public void UpTowers()
     {
-        UpTowers(shootTower);
-    }
+        int[] damage = new int[5] { 40, 100, 250, 550, 950 };
 
-    public void UpTowers(ShootTowerSolo shootTower)
-    {
         switch (shootTower.lvl)
-        {
-            case 1:
-                if (money.money >= shootTower.priceUp[0])
+        {  
+            case 0:
+                if (money.money >= shootTower.priceUp[shootTower.lvl])
                 {
-                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[0];
-                    shootTower.bulletDamage = 40;
+                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[shootTower.lvl];
+                    shootTower.bulletDamage = damage[shootTower.lvl];
                     shootTower.lvl += 1;
-                    money.money -= shootTower.priceUp[0];
+                    money.money -= shootTower.priceUp[shootTower.lvl];
+                }
+                break;
+            case 1:
+                if (money.money >= shootTower.priceUp[shootTower.lvl])
+                {
+                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[shootTower.lvl];
+                    shootTower.bulletDamage = 100;
+                    shootTower.lvl += 1;
+                    money.money -= shootTower.priceUp[shootTower.lvl];
                 }
                 break;
             case 2:
-                if (money.money >= shootTower.priceUp[1])
+                if (money.money >= shootTower.priceUp[shootTower.lvl])
                 {
-                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[1];
-                    shootTower.bulletDamage = 100;
+                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[shootTower.lvl];
+                    shootTower.bulletDamage = 250;
                     shootTower.lvl += 1;
-                    money.money -= shootTower.priceUp[1];
+                    money.money -= shootTower.priceUp[shootTower.lvl];
                 }
                 break;
             case 3:
-                if (money.money >= shootTower.priceUp[2])
-                {
-                    shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[2];
-                    shootTower.bulletDamage = 250;
-                    shootTower.lvl += 1;
-                    money.money -= shootTower.priceUp[2];
-                }
-                break;
-            case 4:
                 if (money.money >= shootTower.priceUp[3])
                 {
                     shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[3];
@@ -105,7 +101,7 @@ public class TowerManagerSolo : MonoBehaviour
                     money.money -= shootTower.priceUp[3];
                 }
                 break;
-            case 5:
+            case 4:
                 if (money.money >= shootTower.priceUp[4])
                 {
                     shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[4];

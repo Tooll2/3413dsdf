@@ -6,9 +6,10 @@ public class ShootTowerSolo : MonoBehaviour
 {
 	public GameObject bullet;
 	public LayerMask whatIsEnemy;
-	public float startAttackTime, radius, bulletDamage = 10, lvl = 1;
+	public float startAttackTime, radius, bulletDamage = 10;
 	public Transform attackPosition;
 	public int[] priceUp;
+	public int lvl = 0;
 
 	private bool shoot;
 
