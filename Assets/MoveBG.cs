@@ -9,17 +9,17 @@ public class MoveBG : MonoBehaviour
     private bool isLeft = true;
 
 
-    void FixedUpdate()
+    void Update()
     {
         if (isLeft)
         {
-            myTransform.position = Vector2.MoveTowards(myTransform.position, currentTargetVector.position, Time.fixedDeltaTime * movementSpeed);
+            myTransform.position = Vector2.MoveTowards(myTransform.position, currentTargetVector.position, Time.deltaTime * movementSpeed);
             if (myTransform.position == currentTargetVector.position)
                 isLeft = false;
         }
         else if (!isLeft) 
         {
-            myTransform.position = Vector2.MoveTowards(myTransform.position, start.position, Time.fixedDeltaTime * movementSpeed);
+            myTransform.position = Vector2.MoveTowards(myTransform.position, start.position, Time.deltaTime * movementSpeed);
             if (myTransform.position == start.position)
                 isLeft = true;
         }
