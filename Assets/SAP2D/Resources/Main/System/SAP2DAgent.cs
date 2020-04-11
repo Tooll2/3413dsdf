@@ -129,11 +129,8 @@ namespace SAP2D {
                             //Rotate(dir);
                             transform.position = Vector2.MoveTowards(transform.position, currentTargetVector, Time.fixedDeltaTime * MovementSpeed);
                             if (Vector2.Distance(transform.position, currentTargetVector) < GetNextPointDistance)
-                            { 
                                 if (pathIndex < path.Length - 1)                                                     
                                     pathIndex++;
-                            }
-                        
                     }
                 }
                 if (!wall)
@@ -159,34 +156,6 @@ namespace SAP2D {
         {
             return grid.GetTileDataAtWorldPosition(Target.position).isWalkable;
         }
-
-        //private void OnDrawGizmos()
-        //{
-        //    if (ShowGraphic)
-        //    {
-
-        //        Gizmos.color = color;
-
-        //        if (CanSearch)
-        //        {
-        //            if (path != null)
-        //            {
-        //                for (int i = 0; i < path.Length; i++)
-        //                {
-        //                    if (i + 1 < path.Length)
-        //                        if (path[i] != Vector2.zero)
-        //                            Gizmos.DrawLine(path[i], path[i + 1]);
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Gizmos.DrawLine(transform.position, grid.GetTileDataAtWorldPosition(Target.position).WorldPosition);
-        //        }
-
-        //        Gizmos.DrawWireSphere(transform.position, GetNextPointDistance);
-        //    }
-        //}
     }
 }
 
