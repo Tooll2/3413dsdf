@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 242687665}
   - component: {fileID: 242687664}
   - component: {fileID: 242687663}
+  - component: {fileID: 242687666}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -311,6 +312,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &242687666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242687662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d7d8ac40324744a8d0fedc3219b851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &378492913
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +405,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 378492916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 242687666}
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &378492916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,7 +847,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 807505088}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 242687666}
+        m_MethodName: SingleButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &807505088
 MonoBehaviour:
   m_ObjectHideFlags: 0
