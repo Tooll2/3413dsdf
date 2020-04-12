@@ -12,6 +12,9 @@ public class ShootTowerSolo : MonoBehaviour
 	public int lvl = 0;
 
 	private bool shoot;
+	private GameObject bullet2;
+	[HideInInspector] public GameObject enemyTarget;
+
 
 	private float timeBtwEnemyAttack;
 
@@ -24,6 +27,8 @@ public class ShootTowerSolo : MonoBehaviour
 	private void FixedUpdate()
 	{
 		Shoot();
+		if (shoot && bullet2 != null)
+			enemyTarget = bullet2.GetComponent<BulletScriptSolo>().lookEnemy;
 	}
 
 	void Shoot()
@@ -31,7 +36,7 @@ public class ShootTowerSolo : MonoBehaviour
 		shoot = Physics2D.OverlapCircle(attackPosition.position, radius, whatIsEnemy);
 		if (shoot && timeBtwEnemyAttack <= 0f)
 		{
-			GameObject bullet2 = Instantiate(bullet, attackPosition.position, attackPosition.rotation);
+			bullet2 = Instantiate(bullet, attackPosition.position, attackPosition.rotation);
 			bullet2.GetComponent<BulletScriptSolo>().bulletDamage = bulletDamage;
 			timeBtwEnemyAttack = startAttackTime;
 		}

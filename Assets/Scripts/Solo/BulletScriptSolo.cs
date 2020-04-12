@@ -6,6 +6,11 @@ public class BulletScriptSolo : MonoBehaviour
 {
     public float speed, bulletDamage;
     public float radius;
+    private Collider2D enemiesToDamage = null;
+
+    public GameObject lookEnemy;
+
+
 
     public LayerMask whatIsEnemy;
 
@@ -13,29 +18,34 @@ public class BulletScriptSolo : MonoBehaviour
     private Transform target = null;
     private Rigidbody2D rb;
     private Vector3 dir;
-    private Collider2D enemiesToDamage = null;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         mytransform = GetComponent<Transform>();
         enemiesToDamage = Physics2D.OverlapCircle(mytransform.position, radius, whatIsEnemy);
+        
     }
 
     private void FixedUpdate()
     {
+
         Move();
     }
 
     void Move()
     {
+        
 
         if (enemiesToDamage == null)
         {
+            lookEnemy = null;
             Destroy(gameObject);
         }
         else
         {
+            lookEnemy = enemiesToDamage.gameObject;
             target = enemiesToDamage.GetComponent<Transform>();
             dir = target.position - mytransform.position;
             rb.velocity = dir.normalized * speed;

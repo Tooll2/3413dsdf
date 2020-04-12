@@ -136,6 +136,7 @@ MonoBehaviour:
   speed: 12
   bulletDamage: 10
   radius: 5
+  lookEnemy: {fileID: 0}
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 512
