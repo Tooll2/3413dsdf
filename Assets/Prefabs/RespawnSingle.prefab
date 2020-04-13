@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2032134515376211486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032134515376211484}
+  - component: {fileID: 2032134515376211487}
+  m_Layer: 0
+  m_Name: RespawnSingle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2032134515376211484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032134515376211486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.9, y: -15.19, z: -101.60339}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2032134515376211487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032134515376211486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e913e096c0b6ac943baa39417bcfb0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mobs:
+  - {fileID: 4012265705220050266, guid: ceedc349df136a549a7a5a63181b765e, type: 3}
+  - {fileID: 4012265705220050266, guid: da9ddd06bc7e10b4db4ff85fa2782da6, type: 3}
+  - {fileID: 4012265705220050266, guid: bc51485b23439dd43b03853b92b38257, type: 3}
+  - {fileID: 4012265705220050266, guid: 914c2a229eed5b549bff766619e65f60, type: 3}
+  - {fileID: 4012265705220050266, guid: 0bd7d3ccc50a9224a932f292f15299e5, type: 3}
+  - {fileID: 4012265705220050266, guid: f3d431814e3c2744a9f956778daf3a20, type: 3}
+  - {fileID: 4012265705220050266, guid: d158e5a5053c717418f25998be953cda, type: 3}
+  - {fileID: 4012265705220050266, guid: 4ccd884f4a2dbdb43a4441be1215af4f, type: 3}
+  - {fileID: 4012265705220050266, guid: 0a2c5c05cb0a814458d73edbaf4b555d, type: 3}
+  - {fileID: 4012265705220050266, guid: f99e96debe6c48941bf9cff8aab48808, type: 3}
+  - {fileID: 4012265705220050266, guid: ea4b3da9218dd684884c60fdbefe2704, type: 3}
+  wave: 0
+  maxWave: 30
+  money: 5000
+  waveTemp: 0
+  timer: 15
+  life: 20
+  timerText: {fileID: 0}
+  moneyText: {fileID: 0}
+  waveText: {fileID: 0}
+  textLife: {fileID: 0}

@@ -17,8 +17,6 @@ public class CreateMobsSingle : MonoBehaviour
         respownPoint = transform;
         instMob = Instmobs();
         StartCoroutine(instMob);
-        StartCoroutine(TimerIncome());
-
     }
     private void FixedUpdate()
     {
@@ -35,7 +33,7 @@ public class CreateMobsSingle : MonoBehaviour
         for (wave = 1; wave <= maxWave; wave++)
         { 
             yield return new WaitForSecondsRealtime(15);
-            for (int i = 0; i <= 5 + (wave * Random.Range(1, 4)) / 1.5; i++)
+            for (int i = 0; i <= 5 + (wave * Random.Range(1, 5)) / 1.5; i++)
             {
                 if (wave >= 10 && wave < 20)
                 {
@@ -57,18 +55,4 @@ public class CreateMobsSingle : MonoBehaviour
         }
     }
 
-
-
-    IEnumerator TimerIncome()
-    {
-        while (true)
-        {
-            timer -= 1;
-            timerText.text = "Begin " + timer;
-
-            if (timer <= 0)
-                break;
-            yield return new WaitForSecondsRealtime(1);
-        }
-    }
 }

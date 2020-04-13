@@ -43,7 +43,11 @@ public class TowerManagerSolo : MonoBehaviour
                     imageFrame.transform.position = shootTower.transform.position;
                     imageFrame.SetActive(true);
                     panelUpTowers.SetActive(imageFrame.activeSelf);
-                    textTowerInfo.text = "LVL: " + (shootTower.lvl + 1) + Environment.NewLine + "Damage: " + shootTower.bulletDamage + Environment.NewLine + "Upgrade cost: " + shootTower.priceUp[shootTower.lvl];
+                    if (shootTower.lvl <= 4)
+                        textTowerInfo.text = "LVL: " + (shootTower.lvl + 1) + Environment.NewLine + "Damage: " + shootTower.bulletDamage + Environment.NewLine + "Upgrade cost: " + shootTower.priceUp[shootTower.lvl];
+                    else
+                        textTowerInfo.text = "LVL: " + (shootTower.lvl + 1) + Environment.NewLine + "Damage: " + shootTower.bulletDamage + Environment.NewLine + "Upgrade cost: MAX";
+
                 }
             }
         }
@@ -67,14 +71,19 @@ public class TowerManagerSolo : MonoBehaviour
     {
         int[] damage = new int[5] {40, 100, 250, 550, 950};
         int i = shootTower.lvl;
-        if (money.money >= shootTower.priceUp[i])
-        {
-            shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[i];
-            shootTower.bulletDamage = damage[i];
-            shootTower.lvl += 1;
-            money.money -= shootTower.priceUp[i];
-            textTowerInfo.text = "LVL: " + (shootTower.lvl + 1) + Environment.NewLine + "Damage: " + damage[i] + Environment.NewLine + "Upgrade cost: " + shootTower.priceUp[shootTower.lvl];
-        }
+        if (i <= 4)
+            if (money.money >= shootTower.priceUp[i])
+            {
+                shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[i];
+                shootTower.bulletDamage = damage[i];
+                shootTower.lvl += 1;
+                money.money -= shootTower.priceUp[i];
+                if (shootTower.lvl <= 4)
+                    textTowerInfo.text = "LVL: " + (shootTower.lvl + 1) + Environment.NewLine + "Damage: " + damage[i] + Environment.NewLine + "Upgrade cost: " + shootTower.priceUp[shootTower.lvl];
+                else
+                    textTowerInfo.text = "LVL: " + (shootTower.lvl + 1) + Environment.NewLine + "Damage: " + damage[i] + Environment.NewLine + "Upgrade cost: MAX";
+
+            }
     }
 
     public void PlacedTower(Vector2 hit)

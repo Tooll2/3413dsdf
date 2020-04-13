@@ -21,7 +21,7 @@ public class LookAtTower : MonoBehaviour
 
     void LateUpdate()
     { 
-        find = Physics2D.OverlapCircle(mytransform.position, radius - 1, whatIsEnemy);
+        find = Physics2D.OverlapCircle(mytransform.position, radius, whatIsEnemy);
         if (find)
         {
             enemiesToDamage = shootTower.enemyTarget;
