@@ -6,9 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class ButtonsMainMenu : MonoBehaviour
 {
+
+    public GameObject mainButtons, lvlSelect;
     public void SingleButton()
     {
-        SceneManager.LoadScene("Single");
+        mainButtons.SetActive(false);
+        lvlSelect.SetActive(true);
+    }
+
+    public void SelectLvlScreept(int lvl)
+    {
+        SceneManager.LoadScene(lvl);
     }
 
     public void Exit()

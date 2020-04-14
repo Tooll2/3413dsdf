@@ -9,7 +9,7 @@ public class CreateMobsSingle : MonoBehaviour
     private Transform respownPoint;
     public int wave, maxWave = 20;
     public int money, waveTemp, timer = 15, life = 20;
-    public Text timerText, moneyText, waveText, textLife;
+    public Text moneyText, waveText, textLife;
     private IEnumerator instMob;
 
     private void Start()
@@ -17,6 +17,7 @@ public class CreateMobsSingle : MonoBehaviour
         respownPoint = transform;
         instMob = Instmobs();
         StartCoroutine(instMob);
+        waveText.text = wave + " / " + maxWave;
     }
     private void FixedUpdate()
     {
@@ -32,7 +33,7 @@ public class CreateMobsSingle : MonoBehaviour
     {
         for (wave = 1; wave <= maxWave; wave++)
         { 
-            yield return new WaitForSecondsRealtime(15);
+            yield return new WaitForSecondsRealtime(10);
             for (int i = 0; i <= 5 + (wave * Random.Range(1, 5)) / 1.5; i++)
             {
                 if (wave >= 10 && wave < 20)

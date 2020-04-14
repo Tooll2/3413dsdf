@@ -173,6 +173,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomMin: 6
   zoomMax: 10
+  right: 10.36
+  left: -10.68
+  up: 14.29
+  down: -13.87
 --- !u!1001 &3417053617123871955
 PrefabInstance:
   m_ObjectHideFlags: 0
