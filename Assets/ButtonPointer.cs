@@ -1,13 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems; 
 
-public class ButtonPointer : MonoBehaviour, IPointerEnterHandler
+public class ButtonPointer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public RectTransform panelRectTransform;
+    private TowerManagerSolo managerSolo;
+
+    private void Start()
+    {
+        managerSolo = FindObjectOfType<TowerManagerSolo>();
+    }
 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        panelRectTransform.SetAsFirstSibling();
+        managerSolo.button = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        managerSolo.button = false;
     }
 }
