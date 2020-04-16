@@ -147,7 +147,7 @@ namespace SAP2D {
 
         private void Rotate(Vector3 dir)
         {
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(dir.y, dir.x) * 28.5f; //Mathf.Rad2Deg
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * RotationSpeed);
         }

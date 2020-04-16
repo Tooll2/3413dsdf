@@ -12,12 +12,14 @@ public class TowerManagerSolo : MonoBehaviour
     public GameObject towersParent;
     Vector2 mousePoint;
     RaycastHit2D hit;
-    ShootTowerSolo shootTower;
+    public ShootTowerSolo shootTower;
     public CreateMobsSingle money;
     public GameObject tower, panelUpTowers, imageFrame;
     public Sprite[] spritesTowers;
     public Text textTowerInfo;
     public bool button;
+
+    public readonly int[] damage = new int[5] { 40, 100, 250, 550, 950 };
 
     SpriteRenderer sprite;
 
@@ -44,6 +46,7 @@ public class TowerManagerSolo : MonoBehaviour
                     imageFrame.transform.position = shootTower.transform.position;
                     imageFrame.SetActive(true);
                     panelUpTowers.SetActive(imageFrame.activeSelf);
+                    panelUpTowers.transform.position = shootTower.transform.position + new Vector3(0, 2, 0);
                     if (shootTower.lvl <= 4)
                         textTowerInfo.text = "LVL: " + (shootTower.lvl + 1) + Environment.NewLine + "Damage: " + shootTower.bulletDamage + Environment.NewLine + "Upgrade cost: " + shootTower.priceUp[shootTower.lvl];
                     else
@@ -69,7 +72,6 @@ public class TowerManagerSolo : MonoBehaviour
 
     public void UpTowers()
     {
-        int[] damage = new int[5] {40, 100, 250, 550, 950};
         int i = shootTower.lvl;
         if (i <= 4)
             if (money.money >= shootTower.priceUp[i])

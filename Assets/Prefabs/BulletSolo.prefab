@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee9c4a62ad439f44b3279dcb8a97560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 15
   bulletDamage: 10
   radius: 5
   lookEnemy: {fileID: 0}

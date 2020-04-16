@@ -7,8 +7,8 @@ public class CreateMobsSingle : MonoBehaviour
 {
     public GameObject[] mobs;
     private Transform respownPoint;
-    public int wave, maxWave = 20;
-    public int money, waveTemp, timer = 15, life = 20;
+    public int wave, maxWave = 20, maxLvlMobs;
+    public int money, life = 20;
     public Text moneyText, waveText, textLife;
     private IEnumerator instMob;
 
@@ -33,8 +33,8 @@ public class CreateMobsSingle : MonoBehaviour
     {
         for (wave = 1; wave <= maxWave; wave++)
         { 
-            yield return new WaitForSecondsRealtime(10);
-            for (int i = 0; i <= 5 + (wave * Random.Range(1, 5)) / 1.5; i++)
+            yield return new WaitForSecondsRealtime(15);
+            for (int i = 0; i <= 5 + (wave * Random.Range(1, 5) / 1.5); i++)
             {
                 if (wave >= 10 && wave < 20)
                 {
@@ -43,7 +43,7 @@ public class CreateMobsSingle : MonoBehaviour
                 }
                 else if (wave >=20)
                 {
-                    Instantiate(mobs[Random.Range(wave - 20, 11)], respownPoint.position, respownPoint.rotation);
+                    Instantiate(mobs[Random.Range(wave - 20, wave - 10)], respownPoint.position, respownPoint.rotation);
                     yield return new WaitForSecondsRealtime(0.5f);
                 }
                 else

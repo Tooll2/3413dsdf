@@ -19,12 +19,7 @@ public class CamMove : MonoBehaviour
             if (Input.mousePosition.y <= 3f && transform.position.y > down)
                 transform.Translate(Vector3.down * 7.5f * Time.fixedDeltaTime);
 
-        Zoom(Input.GetAxis("Mouse ScrollWheel"));
+        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - Input.GetAxis("Mouse ScrollWheel"), zoomMin, zoomMax);
     }
 
-
-    void Zoom (float inc)
-    {
-        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - inc, zoomMin, zoomMax);
-    }
 }

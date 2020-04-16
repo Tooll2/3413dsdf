@@ -195,8 +195,8 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 512
-  startAttackTime: 0.9
-  radius: 4
+  startAttackTime: 0.75
+  radius: 4.5
   bulletDamage: 10
   attackPosition: {fileID: 3563306726909544204}
   priceUp: 32000000c8000000f4010000e8030000c4090000

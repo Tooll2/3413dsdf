@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4098830515303626198}
   - component: {fileID: -347246009604900473}
   - component: {fileID: 7001824790122878627}
-  - component: {fileID: -3651066471877686695}
-  - component: {fileID: -6656519040110430254}
+  - component: {fileID: 5967649910814363866}
+  - component: {fileID: -7089674122375332244}
   m_Layer: 9
-  m_Name: 7
+  m_Name: 6
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0d6b91584cd06b046b275807f5e256e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0457e6c173c927f4e80c6e9de8fb4027, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,8 +145,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
---- !u!114 &-3651066471877686695
+  m_Radius: 0.15
+--- !u!114 &5967649910814363866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,12 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ef1031b192e864a8415a98cee63c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armor: 19
-  maxhealth: 1200
+  armor: 15
+  maxhealth: 780
   bar: {fileID: 1207384637094716115}
   health: 0
-  bounty: 15
---- !u!114 &-6656519040110430254
+  bounty: 12
+--- !u!114 &-7089674122375332244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
