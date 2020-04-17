@@ -7,14 +7,17 @@ public class CreateMobsSingle : MonoBehaviour
 {
     public GameObject[] mobs;
     private Transform respownPoint;
-    public int wave, maxWave = 20, maxLvlMobs;
+    public int wave, maxWave = 20;
     public int money, life = 20;
     public Text moneyText, waveText, textLife;
     private IEnumerator instMob;
+    public float countSpawn;
+    public int maxCount, timerWave;
+
 
     private void Start()
     {
-        respownPoint = transform;
+        respownPoint = GetComponent<Transform>();
         instMob = Instmobs();
         StartCoroutine(instMob);
         waveText.text = wave + " / " + maxWave;
@@ -31,26 +34,22 @@ public class CreateMobsSingle : MonoBehaviour
 
     public IEnumerator Instmobs()
     {
+        int rnd;
         for (wave = 1; wave <= maxWave; wave++)
         { 
-            yield return new WaitForSecondsRealtime(15);
-            for (int i = 0; i <= 5 + (wave * Random.Range(1, 5) / 1.5); i++)
+            yield return new WaitForSecondsRealtime(timerWave);
+            maxCount++;
+            for (int i = 0; i <= 5 + (wave * (Random.Range(1, 5) * countSpawn)); i++)
             {
                 if (wave >= 10 && wave < 20)
-                {
-                    Instantiate(mobs[Random.Range(wave - 10, 11)], respownPoint.position, respownPoint.rotation);
-                    yield return new WaitForSecondsRealtime(0.5f);
-                }
+                    rnd = Random.Range(wave - 10, 11);
                 else if (wave >=20)
-                {
-                    Instantiate(mobs[Random.Range(wave - 20, wave - 10)], respownPoint.position, respownPoint.rotation);
-                    yield return new WaitForSecondsRealtime(0.5f);
-                }
+                    rnd = Random.Range(11, (int)(0.7f * (wave - 20)) + 13);
                 else
-                {
-                    Instantiate(mobs[Random.Range(0, wave)], respownPoint.position, respownPoint.rotation);
-                    yield return new WaitForSecondsRealtime(0.5f);
-                }
+                    rnd = Random.Range(0, wave);
+
+                Instantiate(mobs[rnd], respownPoint.position, respownPoint.rotation);
+                yield return new WaitForSecondsRealtime(Random.Range(0.2f, 1));
                 waveText.text = wave + " / " + maxWave;
             }
         }

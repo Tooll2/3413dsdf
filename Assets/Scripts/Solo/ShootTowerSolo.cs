@@ -10,6 +10,8 @@ public class ShootTowerSolo : MonoBehaviour
 	public Transform attackPosition;
 	public int[] priceUp;
 	public int lvl = 0;
+	public Sprite head;
+	public SpriteRenderer origHead;
 
 	private bool shoot;
 	private GameObject bullet2;
@@ -29,6 +31,11 @@ public class ShootTowerSolo : MonoBehaviour
 		Shoot();
 		if (shoot && bullet2 != null)
 			enemyTarget = bullet2.GetComponent<BulletScriptSolo>().lookEnemy;
+	}
+
+	public void ChangeHead()
+	{
+		origHead.sprite = head;
 	}
 
 	void Shoot()

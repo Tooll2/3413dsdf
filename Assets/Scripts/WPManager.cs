@@ -6,12 +6,13 @@ using SAP2D;
 public class WPManager : MonoBehaviour
 {
 	public Transform[] Waypoints;
+	[HideInInspector] public bool[] kyes = new bool[2] { false, false };
 
 	public float pointDistance;
 
 	private int wpIndex = 0;
 	private bool wp1 = false;
-	private Transform transform;
+	Transform transform;
 	private SAP2DAgent agent;
 
 	private void Start()
@@ -28,6 +29,7 @@ public class WPManager : MonoBehaviour
 		{
 			if (Vector2.Distance(transform.position, Waypoints[wpIndex].position) < pointDistance)
 			{
+				kyes[0] = true;
 				wp1 = true;
 				wpIndex++;
 				agent.Target = Waypoints[wpIndex];
@@ -37,6 +39,7 @@ public class WPManager : MonoBehaviour
 		{
 			if (Vector2.Distance(transform.position, Waypoints[wpIndex].position) < pointDistance)
 			{
+				kyes[1] = true;
 				wpIndex++;
 				agent.Target = Waypoints[wpIndex];
 			}

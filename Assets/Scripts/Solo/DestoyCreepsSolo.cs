@@ -5,9 +5,16 @@ using UnityEngine;
 public class DestoyCreepsSolo : MonoBehaviour
 {
     CreateMobsSingle mobsSingle;
+    WPManager wPManager;
+
+    private void Start()
+    {
+        wPManager = GetComponent<WPManager>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (wPManager.kyes[0] && wPManager.kyes[1])
         if (other.CompareTag("Death"))
         {
             mobsSingle = FindObjectOfType<CreateMobsSingle>();

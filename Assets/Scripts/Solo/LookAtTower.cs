@@ -37,7 +37,7 @@ public class LookAtTower : MonoBehaviour
     {
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * 800);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime * 1200);
     }
 
 }

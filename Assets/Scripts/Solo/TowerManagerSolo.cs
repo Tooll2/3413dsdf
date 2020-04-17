@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,7 +10,7 @@ public class TowerManagerSolo : MonoBehaviour
     public GameObject towersParent;
     Vector2 mousePoint;
     RaycastHit2D hit;
-    public ShootTowerSolo shootTower;
+    [HideInInspector] public ShootTowerSolo shootTower;
     public CreateMobsSingle money;
     public GameObject tower, panelUpTowers, imageFrame;
     public Sprite[] spritesTowers;
@@ -60,6 +58,7 @@ public class TowerManagerSolo : MonoBehaviour
             DisableDrug();
             imageFrame.SetActive(false);
             panelUpTowers.SetActive(imageFrame.activeSelf);
+            button = false;
         }
     }
 
@@ -77,6 +76,8 @@ public class TowerManagerSolo : MonoBehaviour
             if (money.money >= shootTower.priceUp[i])
             {
                 shootTower.GetComponent<SpriteRenderer>().sprite = spritesTowers[i];
+                if (i == 4)
+                    shootTower.ChangeHead();
                 shootTower.bulletDamage = damage[i];
                 shootTower.lvl += 1;
                 money.money -= shootTower.priceUp[i];

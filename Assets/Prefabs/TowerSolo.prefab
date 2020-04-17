@@ -110,7 +110,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9631068, y: 0.9456311}
+    oldSize: {x: 0.972549, y: 0.95490193}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -149,7 +149,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9631068, y: 0.9456311}
+    oldSize: {x: 0.972549, y: 0.95490193}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -201,6 +201,8 @@ MonoBehaviour:
   attackPosition: {fileID: 3563306726909544204}
   priceUp: 32000000c8000000f4010000e8030000c4090000
   lvl: 0
+  head: {fileID: 21300000, guid: cdbff2a4dd02c7d4d976bb976f0674fe, type: 3}
+  origHead: {fileID: 2503738829661196471}
   enemyTarget: {fileID: 4012265705220050266, guid: ceedc349df136a549a7a5a63181b765e,
     type: 3}
 --- !u!222 &4148190698117131071
@@ -245,7 +247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000000059604645, y: -0.232}
+  m_AnchoredPosition: {x: 0.000000059604645, y: -0.23199463}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2503738829661196471
@@ -311,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootTower: {fileID: -3603218400919212562}
-  radius: 4
+  radius: 4.5
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 512
