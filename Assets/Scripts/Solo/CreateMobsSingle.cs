@@ -12,7 +12,7 @@ public class CreateMobsSingle : MonoBehaviour
     public Text moneyText, waveText, textLife;
     private IEnumerator instMob;
     public float countSpawn;
-    public int maxCount, timerWave;
+    public int timerWave, maxCount;
 
 
     private void Start()
@@ -38,13 +38,12 @@ public class CreateMobsSingle : MonoBehaviour
         for (wave = 1; wave <= maxWave; wave++)
         { 
             yield return new WaitForSecondsRealtime(timerWave);
-            maxCount++;
             for (int i = 0; i <= 5 + (wave * (Random.Range(1, 5) * countSpawn)); i++)
             {
                 if (wave >= 10 && wave < 20)
                     rnd = Random.Range(wave - 10, 11);
                 else if (wave >=20)
-                    rnd = Random.Range(11, (int)(0.7f * (wave - 20)) + 13);
+                    rnd = Random.Range(11, (int)(0.7f * (wave - maxCount)) + 13);
                 else
                     rnd = Random.Range(0, wave);
 

@@ -67,6 +67,7 @@ public class TowerManagerSolo : MonoBehaviour
         Destroy(shootTower.gameObject);
         imageFrame.SetActive(false);
         panelUpTowers.SetActive(imageFrame.activeSelf);
+        button = false;
     }
 
     public void UpTowers()
@@ -97,15 +98,6 @@ public class TowerManagerSolo : MonoBehaviour
             float y = Mathf.Round(hit.y);
             Instantiate(tower, new Vector2(x, y), towersParent.transform.rotation);
             money.money -= 10;
-        }
-    }
-
-    public void DelTower(RaycastHit2D hit)
-    {
-        if (!EventSystem.current.IsPointerOverGameObject() && towerButtonPressed != null)
-        {
-            if (hit.collider.CompareTag("Tower"))
-                Destroy(hit.transform.gameObject);
         }
     }
 

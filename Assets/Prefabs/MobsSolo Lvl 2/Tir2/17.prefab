@@ -165,7 +165,7 @@ MonoBehaviour:
   maxhealth: 30000
   bar: {fileID: 1207384637094716115}
   health: 0
-  bounty: 200
+  bounty: 100
 --- !u!114 &7429983714083795451
 MonoBehaviour:
   m_ObjectHideFlags: 0

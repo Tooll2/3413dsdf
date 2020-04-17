@@ -30,7 +30,6 @@ public class BulletScriptSolo : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         Move();
     }
 
