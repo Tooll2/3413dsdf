@@ -101,7 +101,7 @@ namespace SAP2D {
                 else
                 {
                     wall = false;
-                    yield return new WaitForSeconds(PathUpdateRate);
+                    yield return new WaitForSeconds(0.1f);
                 }
                     
             }
@@ -117,7 +117,7 @@ namespace SAP2D {
           
                 Vector3 targetVector = grid.GetTileDataAtWorldPosition(Target.position).WorldPosition; //target tile position
                 
-                if (CanSearch == true && wall == true)
+                if (CanSearch && wall)
                 {
                     if (transform.position != targetVector)
                     {

@@ -108,9 +108,9 @@ MonoBehaviour:
   pathIndex: 0
   posInGrid: {x: 0, y: 0, z: 0}
   CanSearch: 1
-  PathUpdateRate: 1
-  GetNextPointDistance: 0.4
-  ShowGraphic: 1
+  PathUpdateRate: 0.3
+  GetNextPointDistance: 0.65
+  ShowGraphic: 0
   color:
     serializedVersion: 2
     rgba: 4292990208
@@ -132,7 +132,7 @@ MonoBehaviour:
   - {fileID: 2935050393317347065, guid: 1eeed5819d483204a95620aab90e71ba, type: 3}
   - {fileID: 418128163634248351, guid: 8f47f17cf39522b4bb33df0d71d066d3, type: 3}
   kyes: 0000
-  pointDistance: 0.5
+  pointDistance: 0.6
 --- !u!58 &7001824790122878627
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.13}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15
 --- !u!114 &-4074600762720965079
