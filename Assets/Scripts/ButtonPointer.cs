@@ -30,6 +30,4 @@ public class ButtonPointer : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         else
             managerSolo.textTowerInfo.text = "LVL: " + (managerSolo.shootTower.lvl + 1) + Environment.NewLine + "Damage: " + managerSolo.shootTower.bulletDamage + Environment.NewLine + "Upgrade cost: MAX";
     }
-
-
 }

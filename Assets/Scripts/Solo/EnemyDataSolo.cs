@@ -25,7 +25,7 @@ public class EnemyDataSolo : MonoBehaviour
 		if (health <= 0)
 		{
 			money = FindObjectOfType<CreateMobsSingle>();
-			money.money += bounty + 23;
+			money.money += bounty + 22;
 			Destroy(gameObject);
 		}
 	}

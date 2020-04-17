@@ -133,6 +133,7 @@ MonoBehaviour:
   - {fileID: 418128163634248351, guid: 8f47f17cf39522b4bb33df0d71d066d3, type: 3}
   kyes: 0000
   pointDistance: 0.6
+  needK: 1
 --- !u!58 &7001824790122878627
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,7 +166,7 @@ MonoBehaviour:
   maxhealth: 7500
   bar: {fileID: 1207384637094716115}
   health: 0
-  bounty: 60
+  bounty: 75
 --- !u!114 &7429983714083795451
 MonoBehaviour:
   m_ObjectHideFlags: 0

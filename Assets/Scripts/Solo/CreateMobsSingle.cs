@@ -7,13 +7,11 @@ public class CreateMobsSingle : MonoBehaviour
 {
     public GameObject[] mobs;
     private Transform respownPoint;
-    public int wave, maxWave = 20;
-    public int money, life = 20;
+    public int wave, maxWave = 30, money, life = 20, timerWave;
     public Text moneyText, waveText, textLife;
     private IEnumerator instMob;
     public float countSpawn;
-    public int timerWave, maxCount;
-
+    public int[] minCount, maxCount;
 
     private void Start()
     {
@@ -22,35 +20,25 @@ public class CreateMobsSingle : MonoBehaviour
         StartCoroutine(instMob);
         waveText.text = wave + " / " + maxWave;
     }
+
     private void FixedUpdate()
     {
         moneyText.text = "Gold " + money;
     }
 
-
-
-
-
-
     public IEnumerator Instmobs()
     {
         int rnd;
-        for (wave = 1; wave <= maxWave; wave++)
+        for (wave = 0; wave < maxWave; wave++)
         { 
             yield return new WaitForSecondsRealtime(timerWave);
             for (int i = 0; i <= 5 + (wave * (Random.Range(1, 5) * countSpawn)); i++)
             {
-                if (wave >= 10 && wave < 20)
-                    rnd = Random.Range(wave - 10, 11);
-                else if (wave >=20)
-                    rnd = Random.Range(11, (int)(0.7f * (wave - maxCount)) + 13);
-                else
-                    rnd = Random.Range(0, wave);
-
+                rnd = Random.Range(minCount[wave], maxCount[wave]);
                 Instantiate(mobs[rnd], respownPoint.position, respownPoint.rotation);
                 yield return new WaitForSecondsRealtime(Random.Range(0.2f, 1));
-                waveText.text = wave + " / " + maxWave;
             }
+            waveText.text = wave+1 + " / " + maxWave;
         }
     }
 

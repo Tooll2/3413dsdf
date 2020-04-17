@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonBuildPointer : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonPointerBuild : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private TowerManagerSolo managerSolo;
 
